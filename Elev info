@@ -1,0 +1,191 @@
+using System; 
+
+  
+
+  
+
+namespace Tabell_med_objekter 
+
+{ 
+
+    class Elev 
+
+    { 
+
+        int nr; 
+
+        string navn; 
+
+        int karakter; 
+
+  
+
+        // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+        // Nullstiller feltene i objektet 
+
+        // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+        public void NullstillNyElev() 
+
+        { 
+
+            nr = 0; 
+
+            navn = ""; 
+
+            karakter = 0; 
+
+        } 
+
+  
+
+  
+
+  
+
+        // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+        // Registrer av nye elever 
+
+        // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+        public void RegistrerElev() 
+
+        { 
+
+            Console.Write("Nr: "); 
+
+            nr = Int32.Parse(Console.ReadLine()); 
+
+  
+
+            Console.Write("Navn: "); 
+
+            navn = Console.ReadLine(); 
+
+  
+
+            Console.Write("Karakter: "); 
+
+            karakter = Int32.Parse(Console.ReadLine()); 
+
+  
+
+             
+
+        } 
+
+  
+
+  
+
+        // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+        // Skriver ut elevinformasjon for én elev 
+
+        // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+        public void ElevInformasjon() 
+
+        { 
+
+            Console.WriteLine("Nummer: " + nr); 
+
+            Console.WriteLine("Navn: " + navn); 
+
+            Console.WriteLine("Karakter: " + karakter); 
+
+            Console.WriteLine(); 
+
+        } 
+
+  
+
+  
+
+        // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+        // Hovedprogram 
+
+        // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+        class MainClass 
+
+        { 
+
+            public static void Main(string[] args) 
+
+            { 
+
+                int antall = 3; 
+
+  
+
+                // Oppretter en tabell som kan inneholde elev-objekter 
+
+                Elev[] klasseTabell = new Elev[antall]; 
+
+  
+
+                // Fyller tabellen med "tomme" elev-objekter 
+
+                for (int i = 0; i < antall; i++) 
+
+                { 
+
+                    // Oppretter elev-objekt og nullstiller feltene 
+
+                    klasseTabell[i] = new Elev(); 
+
+                    klasseTabell[i].NullstillNyElev(); 
+
+                } 
+
+  
+
+                // Registrere elever 
+
+                for (int i = 0; i < antall; i++) 
+
+                { 
+
+                    klasseTabell[i].RegistrerElev(); 
+
+                } 
+
+  
+
+  
+
+                // Utskrift av alle elevene i tabellen 
+
+                Console.WriteLine(); 
+
+                Console.WriteLine("Karakterutskrift"); 
+
+                Console.WriteLine("-----------------"); 
+
+                Console.WriteLine(); 
+
+  
+
+                for (int i = 0; i < antall; i++) 
+
+                { 
+
+                    klasseTabell[i].ElevInformasjon(); 
+
+                } 
+
+  
+
+                Console.ReadLine(); 
+
+            } 
+
+        } 
+
+    } 
+
+} 
